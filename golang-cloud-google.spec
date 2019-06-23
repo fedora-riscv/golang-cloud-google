@@ -177,7 +177,7 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
 %if %{with check}
 %check
 # kms/apiv1: Needs "credentials"
-%gocheck -d kms/apiv1 -d storage
+%gocheck -d kms/apiv1 -d storage -d firestore -d internal/uid -d pubsub
 %endif
 %endif
 
