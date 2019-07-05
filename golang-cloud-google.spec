@@ -9,6 +9,11 @@ Version:                0.37.4
 
 %gometa
 
+# Remove in F33:
+%global godevelheader %{expand:
+Obsoletes:      golang-google-golangorg-cloud-devel < 0.36.0-5
+}
+
 %if %{without bootstrap}
 %global goipaths0       cloud.google.com/go
 %global goipathsex0     cloud.google.com/go/compute
@@ -23,7 +28,7 @@ Go packages for Google Cloud Platform services.}
 %global godocs          AUTHORS CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTORS RELEASING.md old-news.md CHANGES.md README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Google Cloud client libraries for Go
 
 # Upstream license specification: Apache-2.0
@@ -184,6 +189,9 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
 %gopkgfiles
 
 %changelog
+* Fri Jul 05 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 0.37.4-2
+- Add Obsoletes for old name
+
 * Tue Apr 23 09:48:52 CEST 2019 Robert-André Mauchin <zebob.m@gmail.com> - 0.37.4-1
 - Release 0.37.4
 
