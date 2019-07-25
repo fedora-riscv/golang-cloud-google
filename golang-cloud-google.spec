@@ -28,7 +28,7 @@ Go packages for Google Cloud Platform services.}
 %global godocs          AUTHORS CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTORS RELEASING.md old-news.md CHANGES.md README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Google Cloud client libraries for Go
 
 # Upstream license specification: Apache-2.0
@@ -189,6 +189,9 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
 %gopkgfiles
 
 %changelog
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 0.37.4-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Fri Jul 05 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 0.37.4-2
 - Add Obsoletes for old name
 
