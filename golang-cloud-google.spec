@@ -16,10 +16,10 @@ Obsoletes:      golang-google-golangorg-cloud-devel < 0.36.0-5
 
 %if %{without bootstrap}
 %global goipaths0       cloud.google.com/go
-%global goipathsex0     cloud.google.com/go/compute
+%global goipathsex0     cloud.google.com/go/compute cloud.google.com/go/storage
 %endif
 
-%global goipaths1       cloud.google.com/go/compute
+%global goipaths1       cloud.google.com/go/compute cloud.google.com/go/storage
 
 %global common_description %{expand:
 Go packages for Google Cloud Platform services.}
@@ -28,7 +28,7 @@ Go packages for Google Cloud Platform services.}
 %global godocs          AUTHORS CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTORS RELEASING.md old-news.md CHANGES.md README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Google Cloud client libraries for Go
 
 # Upstream license specification: Apache-2.0
@@ -208,6 +208,9 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
 %gopkgfiles
 
 %changelog
+* Sat Dec 28 22:05:56 CET 2019 Robert-André Mauchin <zebob.m@gmail.com> - 0.50.0-2
+- Bootstrap storage
+
 * Sat Dec 28 15:36:09 CET 2019 Robert-André Mauchin <zebob.m@gmail.com> - 0.50.0-1
 - Update to 0.50.0
 
