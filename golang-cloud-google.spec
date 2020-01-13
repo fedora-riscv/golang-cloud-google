@@ -201,7 +201,15 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
 %if %{with check}
 %check
 # kms/apiv1, containeranalysis/apiv1: Needs "credentials"
-%gocheck -d kms/apiv1 -d containeranalysis/apiv1 -d grafeas/apiv1 -d storage -d firestore -d internal/uid -d pubsub
+# spanner/spansql: https://github.com/googleapis/google-cloud-go/issues/1729
+%gocheck -d kms/apiv1 \
+         -d containeranalysis/apiv1 \
+         -d grafeas/apiv1 \
+         -d storage \
+         -d firestore \
+         -d internal/uid \
+         -d pubsub \
+         -d spanner/spansql
 %endif
 %endif
 
