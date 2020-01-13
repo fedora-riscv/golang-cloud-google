@@ -209,7 +209,7 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
          -d firestore \
          -d internal/uid \
          -d pubsub \
-         -d spanner/spansql
+         -t spanner
 %endif
 %endif
 
