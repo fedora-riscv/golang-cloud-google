@@ -5,7 +5,7 @@
 # https://github.com/GoogleCloudPlatform/google-cloud-go
 %global goipath         cloud.google.com/go
 %global forgeurl        https://github.com/GoogleCloudPlatform/google-cloud-go
-Version:                0.51.0
+Version:                0.52.0
 
 %gometa
 
@@ -28,7 +28,7 @@ Go packages for Google Cloud Platform services.}
 %global godocs          AUTHORS CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTORS RELEASING.md old-news.md CHANGES.md README.md
 
 Name:           %{goname}
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        Google Cloud client libraries for Go
 
 # Upstream license specification: Apache-2.0
@@ -202,6 +202,7 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
 %check
 # kms/apiv1, containeranalysis/apiv1: Needs "credentials"
 # spanner/spansql: https://github.com/googleapis/google-cloud-go/issues/1729
+# profiler: https://github.com/googleapis/google-cloud-go/issues/1761
 %gocheck -d kms/apiv1 \
          -d containeranalysis/apiv1 \
          -d grafeas/apiv1 \
@@ -209,13 +210,18 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
          -d firestore \
          -d internal/uid \
          -d pubsub \
-         -t spanner
+         -t spanner \
+         -d profiler
 %endif
 %endif
 
 %gopkgfiles
 
 %changelog
+* Wed Jan 29 16:18:11 CET 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0.52.0-1
+- Update to 0.52.0
+- Disable profiler test until fix by upstream
+
 * Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.51.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
