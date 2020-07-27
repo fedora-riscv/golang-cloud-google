@@ -28,7 +28,7 @@ Go packages for Google Cloud Platform services.}
 %global godocs          AUTHORS CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTORS RELEASING.md old-news.md CHANGES.md README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Google Cloud client libraries for Go
 
 # Upstream license specification: Apache-2.0
@@ -218,6 +218,9 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
 %gopkgfiles
 
 %changelog
+* Mon Jul 27 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.52.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Wed Jan 29 16:18:11 CET 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0.52.0-1
 - Update to 0.52.0
 - Disable profiler test until fix by upstream
