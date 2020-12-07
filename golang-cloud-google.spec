@@ -5,7 +5,7 @@
 # https://github.com/GoogleCloudPlatform/google-cloud-go
 %global goipath         cloud.google.com/go
 %global forgeurl        https://github.com/GoogleCloudPlatform/google-cloud-go
-Version:                0.65.0
+Version:                0.73.0
 
 %gometa
 
@@ -234,18 +234,22 @@ BuildRequires:  golang(google.golang.org/api/logging/v2)
          -d containeranalysis/apiv1 \
          -d grafeas/apiv1 \
          -d storage \
+         -d datastore \
          -d firestore \
+         -d internal/godocfx \
          -d internal/uid \
          -d pubsub \
-         -t spanner
+         -t spanner \
+         -d pubsublite/internal/wire
 %endif
 %endif
 
 %gopkgfiles
 
 %changelog
-* Fri Sep 04 20:06:46 CEST 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0.65.0-1
-- Update to 0.65.0
+* Fri Sep 04 20:06:46 CEST 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0.73.0-1
+- Update to 0.73.0
+- Close: rhbz#1879310
 
 * Mon Jul 27 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0.52.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
