@@ -5,7 +5,7 @@
 # https://github.com/GoogleCloudPlatform/google-cloud-go
 %global goipath         cloud.google.com/go
 %global forgeurl        https://github.com/GoogleCloudPlatform/google-cloud-go
-Version:                0.74.0
+Version:                0.75.0
 
 %gometa
 
@@ -69,6 +69,7 @@ BuildRequires:  golang(golang.org/x/sync/semaphore)
 BuildRequires:  golang(golang.org/x/text/language)
 BuildRequires:  golang(golang.org/x/time/rate)
 BuildRequires:  golang(golang.org/x/tools/go/packages)
+BuildRequires:  golang(golang.org/x/xerrors)
 BuildRequires:  golang(google.golang.org/api/bigquery/v2)
 BuildRequires:  golang(google.golang.org/api/clouddebugger/v2)
 BuildRequires:  golang(google.golang.org/api/cloudresourcemanager/v1)
@@ -86,6 +87,7 @@ BuildRequires:  golang(google.golang.org/api/transport/grpc)
 BuildRequires:  golang(google.golang.org/api/transport/http)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/analytics/admin/v1alpha)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/analytics/data/v1alpha)
+BuildRequires:  golang(google.golang.org/genproto/googleapis/api/httpbody)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/api/label)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/api/metric)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/api/monitoredres)
@@ -95,7 +97,6 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/bigtable/admin/v2)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/bigtable/v2)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/accessapproval/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/asset/v1)
-BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/asset/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/asset/v1p2beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/asset/v1p5beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/assuredworkloads/v1beta1)
@@ -114,6 +115,7 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/stor
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/billing/budgets/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/billing/budgets/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/billing/v1)
+BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/channel/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/datacatalog/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/datacatalog/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/dataproc/v1)
@@ -146,6 +148,7 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/recommender/v
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/recommender/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/redis/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/redis/v1beta1)
+BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/retail/v2)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/scheduler/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/scheduler/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/secretmanager/v1)
@@ -219,6 +222,7 @@ BuildRequires:  golang(google.golang.org/grpc/keepalive)
 BuildRequires:  golang(google.golang.org/grpc/metadata)
 BuildRequires:  golang(google.golang.org/grpc/status)
 BuildRequires:  golang(google.golang.org/protobuf/proto)
+BuildRequires:  golang(google.golang.org/protobuf/types/known/structpb)
 BuildRequires:  golang(gopkg.in/src-d/go-git.v4)
 BuildRequires:  golang(gopkg.in/yaml.v2)
 BuildRequires:  golang(rsc.io/binaryregexp)
@@ -229,7 +233,6 @@ BuildRequires:  golang(github.com/golang/protobuf/jsonpb)
 BuildRequires:  golang(google.golang.org/api/iterator/testing)
 BuildRequires:  golang(google.golang.org/api/logging/v2)
 BuildRequires:  golang(google.golang.org/grpc/peer)
-BuildRequires:  golang(google.golang.org/protobuf/types/known/structpb)
 BuildRequires:  golang(google.golang.org/protobuf/types/known/timestamppb)
 %endif
 %endif
@@ -267,6 +270,10 @@ BuildRequires:  golang(google.golang.org/protobuf/types/known/timestamppb)
 %gopkgfiles
 
 %changelog
+* Thu Jan 14 21:22:26 CET 2021 Robert-André Mauchin <zebob.m@gmail.com> - 0.75.0-1
+- Update to 0.75.0
+- Close: rhbz#1915169
+
 * Sun Dec 27 12:58:42 CET 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0.74.0-1
 - Update to 0.74.0
 - Close: rhbz#1906846
