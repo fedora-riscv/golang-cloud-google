@@ -303,7 +303,7 @@ for test in "TestIntegration" \
 awk -i inplace '/^func.*'"$test"'\(/ { print; print "\tt.Skip(\"disabled failing test\")"; next}1' $(grep -rl $test)
 done
 %gocheck -d storage \
-%if %{__isa_bits} && %{__isa_bits} == 32
+%if %{defined __isa_bits} && %{__isa_bits} == 32
          -d pubsub -d pubsublite/internal/wire -d pubsublite/pscompat -d spanner/spansql \
 %endif
 %endif
