@@ -5,7 +5,7 @@
 # https://github.com/GoogleCloudPlatform/google-cloud-go
 %global goipath         cloud.google.com/go
 %global forgeurl        https://github.com/GoogleCloudPlatform/google-cloud-go
-Version:                0.82.0
+Version:                0.81.0
 
 %gometa
 
@@ -65,6 +65,7 @@ BuildRequires:  golang(go.opencensus.io/stats)
 BuildRequires:  golang(go.opencensus.io/stats/view)
 BuildRequires:  golang(go.opencensus.io/tag)
 BuildRequires:  golang(go.opencensus.io/trace)
+BuildRequires:  golang(golang.org/x/net/context)
 BuildRequires:  golang(golang.org/x/oauth2)
 BuildRequires:  golang(golang.org/x/oauth2/google)
 BuildRequires:  golang(golang.org/x/oauth2/jwt)
@@ -99,7 +100,6 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/api/monitoredres)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/api/serviceconfig)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/api/servicecontrol/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/api/servicemanagement/v1)
-BuildRequires:  golang(google.golang.org/genproto/googleapis/api/serviceusage/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/appengine/logging/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/appengine/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/area120/tables/v1alpha1)
@@ -120,6 +120,7 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/data
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/reservation/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/reservation/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/storage/v1)
+BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/storage/v1alpha2)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/bigquery/storage/v1beta2)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/billing/budgets/v1)
@@ -127,7 +128,6 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/billing/budge
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/billing/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/binaryauthorization/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/channel/v1)
-BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/clouddms/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/datacatalog/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/datacatalog/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1)
@@ -152,7 +152,6 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/managedidenti
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/mediatranslation/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/memcache/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/memcache/v1beta2)
-BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/metastore/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/metastore/v1alpha)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/metastore/v1beta)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/networkconnectivity/v1alpha1)
@@ -161,7 +160,6 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/orgpolicy/v2)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/osconfig/agentendpoint/v1beta)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/osconfig/v1)
-BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/osconfig/v1alpha)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/osconfig/v1beta)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/oslogin/common)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/oslogin/v1)
@@ -183,7 +181,6 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/scheduler/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/scheduler/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/secretmanager/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/secretmanager/v1beta1)
-BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/security/privateca/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/security/privateca/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/securitycenter/settings/v1beta1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/cloud/securitycenter/v1)
@@ -226,7 +223,6 @@ BuildRequires:  golang(google.golang.org/genproto/googleapis/devtools/containera
 BuildRequires:  golang(google.golang.org/genproto/googleapis/firestore/admin/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/firestore/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/firestore/v1beta1)
-BuildRequires:  golang(google.golang.org/genproto/googleapis/gapic/metadata)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/grafeas/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/iam/admin/v1)
 BuildRequires:  golang(google.golang.org/genproto/googleapis/iam/credentials/v1)
@@ -253,11 +249,8 @@ BuildRequires:  golang(google.golang.org/grpc/credentials)
 BuildRequires:  golang(google.golang.org/grpc/keepalive)
 BuildRequires:  golang(google.golang.org/grpc/metadata)
 BuildRequires:  golang(google.golang.org/grpc/status)
-BuildRequires:  golang(google.golang.org/protobuf/encoding/protojson)
 BuildRequires:  golang(google.golang.org/protobuf/encoding/protowire)
 BuildRequires:  golang(google.golang.org/protobuf/proto)
-BuildRequires:  golang(google.golang.org/protobuf/reflect/protoreflect)
-BuildRequires:  golang(google.golang.org/protobuf/runtime/protoimpl)
 BuildRequires:  golang(google.golang.org/protobuf/types/known/durationpb)
 BuildRequires:  golang(google.golang.org/protobuf/types/known/emptypb)
 BuildRequires:  golang(google.golang.org/protobuf/types/known/structpb)
@@ -270,8 +263,8 @@ BuildRequires:  golang(rsc.io/binaryregexp)
 # Tests
 BuildRequires:  golang(github.com/golang/protobuf/jsonpb)
 BuildRequires:  golang(google.golang.org/api/iterator/testing)
+BuildRequires:  golang(google.golang.org/api/logging/v2)
 BuildRequires:  golang(google.golang.org/grpc/peer)
-BuildRequires:  golang(google.golang.org/protobuf/testing/protocmp)
 %endif
 %endif
 
@@ -282,6 +275,7 @@ BuildRequires:  golang(google.golang.org/protobuf/testing/protocmp)
 
 %prep
 %goprep
+sed -i "s|github.com/google/go-github/v34|github.com/google/go-github/v35|" $(find . -iname "*.go" -type f)
 
 %install
 %gopkginstall
@@ -289,8 +283,6 @@ BuildRequires:  golang(google.golang.org/protobuf/testing/protocmp)
 %if %{without bootstrap}
 %if %{with check}
 %check
-# kms/apiv1, containeranalysis/apiv1: Needs "credentials"
-# spanner/spansql: https://github.com/googleapis/google-cloud-go/issues/1729
 for test in "TestIntegration" \
             "TestIntegration_GetGrafeasClient" \
             "TestParse" \
@@ -298,18 +290,24 @@ for test in "TestIntegration" \
             "TestNewPublisherCreatesImpl" \
             "TestNewSubscriberCreatesCorrectImpl" \
             "TestCallBuilders" \
+            "TestSetFromProtoValueErrors" \
+            "TestTimestamp" \
+            "TestFlowControllerUnboundedBytes" \
 ; do
 awk -i inplace '/^func.*'"$test"'\(/ { print; print "\tt.Skip(\"disabled failing test\")"; next}1' $(grep -rl $test)
 done
-%gocheck -d storage
+%gocheck -d storage -d internal/godocfx \
+%ifarch %{ix86} %{arm32}
+         -d pubsub -d pubsublite/internal/wire -d pubsublite/pscompat -d spanner/spansql \
+%endif
 %endif
 %endif
 
 %gopkgfiles
 
 %changelog
-* Mon May 24 20:57:45 CEST 2021 Robert-André Mauchin <zebob.m@gmail.com> - 0.82.0-1
-- Update to 0.82.0
+* Mon May 24 20:57:45 CEST 2021 Robert-André Mauchin <zebob.m@gmail.com> - 0.81.0-1
+- Update to 0.81.0
 - Close: rhbz#1924392
 
 * Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 0.75.0-2
