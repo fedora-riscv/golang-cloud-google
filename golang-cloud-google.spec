@@ -289,8 +289,6 @@ BuildRequires:  golang(google.golang.org/protobuf/testing/protocmp)
 %if %{without bootstrap}
 %if %{with check}
 %check
-# kms/apiv1, containeranalysis/apiv1: Needs "credentials"
-# spanner/spansql: https://github.com/googleapis/google-cloud-go/issues/1729
 for test in "TestIntegration" \
             "TestIntegration_GetGrafeasClient" \
             "TestParse" \
