@@ -23,7 +23,7 @@ Go packages for Google Cloud Platform services.}
 %global godocs          AUTHORS CODE_OF_CONDUCT.md CONTRIBUTING.md CONTRIBUTORS RELEASING.md old-news.md CHANGES.md README.md
 
 Name:           %{goname}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Google Cloud client libraries for Go
 
 # Upstream license specification: Apache-2.0
@@ -282,6 +282,7 @@ BuildRequires:  golang(google.golang.org/protobuf/testing/protocmp)
 
 %prep
 %goprep
+sed -i "s|github.com/google/go-github/v33|github.com/google/go-github/v35|" $(find . -name "*.go" -type f)
 
 %install
 %gopkginstall
@@ -312,6 +313,9 @@ done
 %gopkgfiles
 
 %changelog
+* Tue Jun  8 18:05:50 CEST 2021 Robert-André Mauchin <zebob.m@gmail.com> - 0.82.0-2
+- Fix github.com/google/go-github import path
+
 * Mon May 24 20:57:45 CEST 2021 Robert-André Mauchin <zebob.m@gmail.com> - 0.82.0-1
 - Update to 0.82.0
 - Close: rhbz#1924392
