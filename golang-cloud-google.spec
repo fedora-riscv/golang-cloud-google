@@ -313,7 +313,7 @@ for test in "TestIntegration" \
 ; do
 awk -i inplace '/^func.*'"$test"'\(/ { print; print "\tt.Skip(\"disabled failing test\")"; next}1' $(grep -rl $test)
 done
-%gocheck -d storage \
+%gocheck -d storage -t cmd \
 %ifarch %{ix86} %{arm32}
          -d pubsub -d pubsublite/internal/wire -d pubsublite/pscompat -d spanner/spansql -d bigquery/storage/managedwriter \
 %endif
