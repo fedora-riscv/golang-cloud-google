@@ -282,7 +282,11 @@ BuildRequires:  golang(google.golang.org/protobuf/testing/protocmp)
 
 %prep
 %goprep
-sed -i "s|github.com/google/go-github/v33|github.com/google/go-github/v35|" $(find . -name "*.go" -type f)
+# Change import paths to account for the versions in Fedora
+sed \
+    -e "s|github.com/google/go-github/v33|github.com/google/go-github/v35|" \
+    -e "s|google.golang.org/genproto/googleapis/cloud/video/transcoder/v1beta1|google.golang.org/genproto/googleapis/cloud/video/transcoder/v1|" \
+    -i $(find . -name "*.go" -type f)
 
 %install
 %gopkginstall
