@@ -15,6 +15,16 @@ Version:                0.103.0
 %global common_description %{expand:
 Go packages for Google Cloud Platform services.}
 
+# This should be removed in Fedora 39
+%global godevelheader0  %{expand:
+# This package used to be split up to solve a bootstrapping issue.
+# golang-github-cloud-google-compute-devel has since been merged with
+# the main -devel package, so we need this to ensure a smooth update path.
+# See https://bugzilla.redhat.com/2109630
+Provides: golang-cloud-google-compute-devel = %{?epoch:epoch:}%{version}-%{release}
+Obsoletes: golang-cloud-google-compute-devel < 0.103.0-2
+}
+
 %global golicenses      LICENSE
 %global godocs          CHANGES.md CODE_OF_CONDUCT.md CONTRIBUTING.md\\\
                         README.md RELEASING.md SECURITY.md testing.md\\\
@@ -23,7 +33,6 @@ Name:           %{goname}
 Release:        %autorelease
 Summary:        Google Cloud Client Libraries for Go
 
-# Upstream license specification: BSD-3-Clause and Apache-2.0
 License:        BSD-3-Clause AND Apache-2.0
 URL:            %{gourl}
 Source0:        %{gosource}
