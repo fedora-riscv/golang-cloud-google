@@ -88,12 +88,21 @@ for test in "TestInstanceAdmin_GetCluster" \
 ; do
 awk -i inplace '/^func.*'"$test"'\(/ { print; print "\tt.Skip(\"disabled failing test\")"; next}1' $(grep -rl $test)
 done
+
+
+%global checkflags -t storage -t cmd
 %if 0%{?__isa_bits} == 32
-%gocheck -t storage -t cmd -d bigquery/storage/managedwriter -d pubsub -d pubsublite/internal/wire -d pubsublite/pscompat -d spanner/spansql
-%else
-# get stuck for 10 mn
-%gocheck -t storage -t cmd
+%global checkflags %{checkflags} -d bigquery/storage/managedwriter -d pubsub -d pubsublite/internal/wire -d pubsublite/pscompat -d spanner/spansql
 %endif
+
+i=0
+while true; do
+    if [ "$i" -ge "5" ]; then
+        exit 1
+    fi
+    (%gocheck %checkflags) && break
+    i=$(($i + 1))
+done
 %endif
 %endif
 
